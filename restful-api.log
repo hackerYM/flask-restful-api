@@ -1,0 +1,32 @@
+2018-10-21 22:03:28,551 - INFO - User requests info, path: /rest/error, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.2.0
+2018-10-21 22:03:28,553 - INFO - Server response info, code: 404, status: Not Found, description: Please read the document to check API.
+2018-10-21 22:04:43,166 - INFO - User requests info, path: /rest/ping, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.2.0
+2018-10-21 22:04:43,169 - INFO - Server response info, code: 200, status: OK, description: Welcome to restful api server.
+2018-10-22 00:44:27,300 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 00:44:27,336 - CRITICAL - Failed connect to mongoDB, method: products_list
+2018-10-22 00:44:42,874 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 00:44:42,885 - CRITICAL - Failed connect to mongoDB, method: products_list
+2018-10-22 00:45:35,567 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 00:45:54,817 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 00:45:54,838 - CRITICAL - Failed connect to mongoDB, method: products_list
+2018-10-22 00:46:43,860 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 00:47:14,114 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 00:48:15,337 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 00:48:15,367 - CRITICAL - Failed connect to mongoDB, method: products_list
+2018-10-22 00:48:33,106 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:06:38,681 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:07:19,816 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:07:37,339 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:07:58,089 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:08:07,491 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:08:25,856 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:09:01,978 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:09:13,779 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:12:06,376 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:12:17,497 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:17:46,407 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:17:46,448 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:18:11,190 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:18:11,236 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:39:16,936 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-10-22 01:39:16,974 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
