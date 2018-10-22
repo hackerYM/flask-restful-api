@@ -18,6 +18,7 @@ status = {
     400: 'Bad Request',
     404: 'Not Found',
     405: 'Method Not Allowed',
+    409: 'Conflict',
     500: 'Internal Server Error'
 }
 
@@ -27,6 +28,7 @@ default_description = {
     400: 'Please check paras or query valid.',
     404: 'Please read the document to check API.',
     405: 'Please read the document to check API.',
+    409: 'Request could not be processed because of conflict in the current state of the resource.',
     500: 'Please contact api server manager.'
 }
 

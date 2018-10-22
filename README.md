@@ -592,7 +592,7 @@ def find_product(id):
 
     try:
         query, fields = {"_id": id}, {}
-        products = store_products().find_one(query)
+        product = store_products().find_one(query)
 
         return products
     except:
@@ -609,9 +609,153 @@ print(find_product('1'))
 
 ![](https://i.imgur.com/WXM7xlm.png)
 
-
 ### (De)serialization
 
+Serialization 和 Deserialization 即序列化和反序列化。RESTful API 會規範統一格式來傳遞數據，這邊使用 Json 格式。
+
+在 api server 裡面，不會直接使用 Json 字串來處理資料，而會使用 Python 資料型態，如 list, dict, class 等，傳遞給使用者 Json 字串，內部處理則用 Python 資料型態，兩者時常需要變換，所以，我們使用 Serialization 和 Deserialization 做轉換。
+
+- Serialization: Python 資料型態 -> Json 字串
+
+- Deserialization: Json 字串 -> Python 資料型態
+
+別人已經寫好輪子了，就不需要自己重複再造一遍，這是軟體工程很重要的原則 [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)，於是我們使用 ```marshmallow``` 模組來實現功能。
+
+- [marshmallow 文檔](https://www.jianshu.com/p/594865f0681b)
+
+- [Flask restful api 序列化和反序列化](https://blog.igevin.info/posts/flask-rest-serialize-deserialize/)
+
+當系統複雜起來，可能會使用到許多 Schema，因此開一個資料夾管理這些 Schema
+
+![](https://i.imgur.com/VVQxPbi.png)
+
+```__init__.py``` 的作用是將文件夾變為一個 Python 模塊，不太清楚的朋友可以點底下連結學習
+
+- [What is ```__init__.py``` for?](https://stackoverflow.com/questions/448271/what-is-init-py-for)
+
+- [Python 的 Import 陷阱](https://medium.com/pyladies-taiwan/python-的-import-陷阱-3538e74f57e3)
+
+Code:
+
+```python=
+# contentProduct.py
+
+from marshmallow import Schema, fields
+
+
+class ContentProduct(object):
+    def __init__(self, product_id, name, introduction, price, quantity):
+        self.product_id = product_id
+        self.name = name
+        self.introduction = introduction
+        self.price = price
+        self.quantity = quantity
+
+
+class ProductSchema(Schema):
+    product_id = fields.Str(attribute="_id")
+    name = fields.Str()
+    introduction = fields.Str()
+    price = fields.Number()
+    quantity = fields.Number()
+```
+
+我們修改 ```mongoDB.py``` 加入序列化和反序列化，額外開一個功能，新增一筆產品資料，並要處理例外狀況，key id 重複、連線失敗。
+
+發生錯誤時，使用 Flask 的 Response class (type: tuple)，回傳定義好的錯誤訊息，這樣被其他方法呼叫時，若是類別是 ```tuple```，就可以知道發生問題了，直接傳遞訊息給使用者。
+
+Code:
+
+```python=
+# mongoDB.py
+
+from pymongo import MongoClient, errors
+
+import util
+import result
+import models.contentProduct as contentProduct
+
+# (Schema) Serialization and Deserialization, method: load(), dump()
+ProductSchema = contentProduct.ProductSchema()
+
+# --------------------------------------------------------------------------------------
+
+# connect to mongoDB's collection, set connection timeout = 3s -> use Singleton design-pattern
+def connect_collection(host, port, db_name, collection):
+    result.write_log("info", "Connect to mongoDB, host: {0}, port: {1}, db: {2}, collection: {3}"
+                     .format(host, port, db_name, collection))
+    name, pwd = util.MONGO_USERNAME, util.MONGO_PASSWORD
+
+    client = MongoClient(host, username=name, password=pwd, port=port, serverSelectionTimeoutMS=3000, connect=False)
+    db = client[db_name]
+    return db[collection]
+
+
+def store_products():
+    return connect_collection(util.MONGO_HOST, util.MONGO_PORT, util.MONGO_DB_STORE, util.MONGO_COLLECTION_PRODUCTS)
+
+# --------------------------------------------------------------------------------------
+
+
+# the type of collection's result is list or dict, [] or {} -> no result, tuple(Response class) -> errors happen
+def products_list():
+
+    try:
+        products = store_products().find()
+        products_data = ProductSchema.dump(products, many=True).data
+
+        return products_data
+
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: products_list")
+        return result.result(500, "Failed connect to mongoDB, method: products_list")
+
+
+def find_product(id):
+
+    try:
+        query, fields = {"_id": id}, {}
+        product = store_products().find_one(query)
+        product_data = ProductSchema.dump(product).data
+
+        return product_data
+
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: find_product")
+        return result.result(500, "Failed connect to mongoDB, method: find_product")
+
+
+def create_product(product_data):
+
+    try:
+        product = ProductSchema.load(product_data).data
+        store_products().insert_one(product)
+
+        return product_data
+
+    except errors.DuplicateKeyError:
+        result.write_log("warning", "DuplicateKey error in mongoDB, method: create_product")
+        return result.result(409, "already exist product id in the collection")
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: create_product")
+        return result.result(500, "Failed connect to mongoDB, method: create_product")
+
+print(create_product(
+    {
+        'product_id': '4',
+        'introduction': 'htc phone',
+        'quantity': 50,
+        'name': 'htc u12',
+        'price': 350
+    }
+))
+```
+
+最後幾行 code 是測試用的，看是否連線正常並可以插入資料。
+
+![](https://i.imgur.com/NKFheDm.png)
+
+![](https://i.imgur.com/kVpvPdi.png)
 
 ## Restful API
 

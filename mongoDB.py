@@ -1,7 +1,13 @@
-from pymongo import MongoClient
+from pymongo import MongoClient, errors
+
 import util
 import result
+import models.contentProduct as contentProduct
 
+# (Schema) Serialization and Deserialization, method: load(), dump()
+ProductSchema = contentProduct.ProductSchema()
+
+# --------------------------------------------------------------------------------------
 
 # connect to mongoDB's collection, set connection timeout = 3s -> use Singleton design-pattern
 def connect_collection(host, port, db_name, collection):
@@ -20,29 +26,55 @@ def store_products():
 # --------------------------------------------------------------------------------------
 
 
+# the type of collection's result is list or dict, [] or {} -> no result, tuple(Response class) -> errors happen
 def products_list():
 
     try:
         products = store_products().find()
+        products_data = ProductSchema.dump(products, many=True).data
 
-        return [product for product in products]
+        return products_data
+
     except:
         result.write_log("critical", "Failed connect to mongoDB, method: products_list")
-        return None
+        return result.result(500, "Failed connect to mongoDB, method: products_list")
 
 
 def find_product(id):
 
     try:
         query, fields = {"_id": id}, {}
-        products = store_products().find_one(query)
+        product = store_products().find_one(query)
+        product_data = ProductSchema.dump(product).data
 
-        return products
+        return product_data
+
     except:
         result.write_log("critical", "Failed connect to mongoDB, method: find_product")
-        return None
+        return result.result(500, "Failed connect to mongoDB, method: find_product")
 
 
-print(products_list())
-print("---")
-print(find_product('1'))
+def create_product(product_data):
+
+    try:
+        product = ProductSchema.load(product_data).data
+        store_products().insert_one(product)
+
+        return product_data
+
+    except errors.DuplicateKeyError:
+        result.write_log("warning", "DuplicateKey error in mongoDB, method: create_product")
+        return result.result(409, "already exist product id in the collection")
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: create_product")
+        return result.result(500, "Failed connect to mongoDB, method: create_product")
+
+print(create_product(
+    {
+        'product_id': '4',
+        'introduction': 'htc phone',
+        'quantity': 50,
+        'name': 'htc u12',
+        'price': 350
+    }
+))

@@ -35,6 +35,11 @@ def method_404(e):
 def method_405(e):
     return result.result(405, "http method is not allowed for the requested URL")
 
+
+@app.errorhandler(500)
+def method_500(e):
+    return result.result(500, "something has gone wrong on the restful api server")
+
 # --------------------------------------------------------------------------------------
 
 
