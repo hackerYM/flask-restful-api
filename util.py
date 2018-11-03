@@ -9,4 +9,4 @@ MONGO_COLLECTION_PRODUCTS = 'Products'
 
 # logger info
 log_format = "%(asctime)s - %(levelname)s - %(message)s"
-log_filename = "restful-api.log"
+log_filename = "api.log"

@@ -1,0 +1,511 @@
+2018-11-03 12:55:03,860 - INFO - User requests info, path: /, method: GET, ip: 127.0.0.1, agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+2018-11-03 12:55:04,011 - INFO - User requests info, path: /favicon.ico, method: GET, ip: 127.0.0.1, agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+2018-11-03 12:55:04,011 - INFO - Server response info, code: 404, status: Not Found, description: Please read the document to check API.
+2018-11-03 12:55:35,599 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 12:55:35,600 - INFO - Server response info, code: 404, status: Not Found, description: Please read the document to check API.
+2018-11-03 12:55:57,694 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 12:55:57,695 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 12:55:57,739 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 12:57:36,264 - INFO - User requests info, path: /rest/product/1, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 12:57:36,265 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 12:57:36,302 - INFO - Server response info, code: 200, status: OK, description: Get 1's product data.
+2018-11-03 12:58:03,216 - INFO - User requests info, path: /rest/product/x, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 12:58:03,217 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 12:58:03,218 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 12:58:05,426 - INFO - User requests info, path: /rest/product/3, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 12:58:05,427 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 12:58:05,429 - INFO - Server response info, code: 200, status: OK, description: Get 3's product data.
+2018-11-03 13:22:50,748 - INFO - User requests info, path: /rest/product/3, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:22:50,749 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:22:50,785 - INFO - Server response info, code: 200, status: OK, description: Get 3's product data.
+2018-11-03 13:25:49,667 - INFO - User requests info, path: /rest/product/3, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:25:49,667 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:25:49,702 - INFO - Server response info, code: 200, status: OK, description: Get 3's product data.
+2018-11-03 13:26:09,099 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:26:15,918 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:27:16,823 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:28:07,897 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:28:17,197 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:28:31,399 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:29:06,208 - INFO - User requests info, path: /rest/product, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:29:06,209 - INFO - Server response info, code: 405, status: Method Not Allowed, description: Please read the document to check API.
+2018-11-03 13:29:42,822 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:30:04,093 - INFO - User requests info, path: /rest/product/3, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:30:04,093 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:30:04,132 - INFO - Server response info, code: 200, status: OK, description: Get 3's product data.
+2018-11-03 13:30:13,235 - INFO - User requests info, path: /rest/product/3, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:30:13,236 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:30:13,237 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 13:30:13,238 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 13:30:44,886 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:30:44,887 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:30:44,889 - INFO - Server response info, code: 201, status: None, description: Create 4's product data.
+2018-11-03 13:30:54,732 - INFO - User requests info, path: /rest/product/4, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:30:54,732 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:30:54,734 - INFO - Server response info, code: 200, status: OK, description: Get 4's product data.
+2018-11-03 13:31:07,520 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:31:07,521 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:31:07,523 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 13:31:07,524 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 13:31:14,837 - INFO - User requests info, path: /rest/product/4, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:31:14,837 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:31:14,839 - INFO - Server response info, code: 204, status: None, description: Delete 4's product data.
+2018-11-03 13:31:28,399 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:31:28,400 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:31:28,402 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 13:31:32,351 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:31:32,352 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:31:32,354 - INFO - Server response info, code: 201, status: None, description: Create 4's product data.
+2018-11-03 13:31:38,349 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:31:38,352 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:31:38,354 - INFO - Server response info, code: 200, status: OK, description: Update 4's product data.
+2018-11-03 13:31:45,704 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:32:42,730 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:33:15,710 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:33:15,711 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid.
+2018-11-03 13:33:25,548 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:33:25,551 - WARNING - Server response info, code: 500, status: Internal Server Error, description: Please contact api server manager.
+2018-11-03 13:37:03,067 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:37:03,068 - INFO - Server response info, code: 406, status: Not Acceptable, description: Please read the document to check API, content not acceptable according to headers sent in the request.
+2018-11-03 13:37:29,173 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:37:29,174 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:37:29,214 - INFO - Server response info, code: 200, status: OK, description: Update 4's product data.
+2018-11-03 13:37:37,184 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:37:37,184 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:37:37,186 - INFO - Server response info, code: 200, status: OK, description: Update 4's product data.
+2018-11-03 13:37:42,934 - INFO - User requests info, path: /rest/product/4, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:37:42,934 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:37:42,936 - INFO - Server response info, code: 204, status: No Content, description: Delete 4's product data.
+2018-11-03 13:41:23,733 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:41:23,733 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:41:23,735 - INFO - Server response info, code: 201, status: Created, description: Create 4's product data.
+2018-11-03 13:41:30,668 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:41:30,669 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 13:41:47,785 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:41:47,786 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 13:42:01,536 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:42:01,537 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:42:01,538 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 13:42:01,539 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 13:42:54,076 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:42:54,077 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 13:43:45,511 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:43:45,512 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 13:44:04,007 - INFO - User requests info, path: /rest/product/4, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:44:04,008 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 13:46:22,000 - INFO - User requests info, path: /rest/product/4, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:46:22,001 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:46:22,039 - INFO - Server response info, code: 200, status: OK, description: Update 4's product data.
+2018-11-03 13:48:07,648 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:48:07,649 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:48:07,650 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 13:49:38,673 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:49:38,673 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:49:38,675 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 13:49:49,145 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:49:49,146 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:49:49,148 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 13:50:14,893 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:50:14,894 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:50:14,896 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 13:50:45,076 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:50:45,077 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:50:45,078 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 13:50:48,233 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:50:48,233 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:50:48,235 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 13:57:39,007 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:57:39,008 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:57:39,052 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 13:57:48,596 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:57:48,596 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:57:48,598 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 13:57:55,509 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:57:55,510 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:57:55,512 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 13:57:59,318 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:57:59,321 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:57:59,324 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 13:58:04,901 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:58:04,901 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:58:04,903 - INFO - Server response info, code: 404, status: Not Found, description: Products are not found in the collection.
+2018-11-03 13:58:09,485 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:58:09,486 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:58:09,488 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 13:58:28,274 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:58:28,275 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:58:28,278 - INFO - Server response info, code: 404, status: Not Found, description: Products are not found in the collection.
+2018-11-03 13:58:42,399 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:58:42,399 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:58:42,402 - INFO - Server response info, code: 404, status: Not Found, description: Products are not found in the collection.
+2018-11-03 13:58:50,358 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 13:58:50,359 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 13:58:50,361 - INFO - Server response info, code: 404, status: Not Found, description: Products are not found in the collection.
+2018-11-03 14:01:25,499 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 14:01:25,500 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 14:01:25,534 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 14:01:33,058 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 14:01:33,059 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 14:01:33,063 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 14:50:46,377 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 14:50:46,379 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 14:50:51,318 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 14:50:51,319 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 14:50:51,322 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 15:14:00,299 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:14:00,300 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:14:00,302 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 15:14:08,592 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:14:08,592 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:14:08,594 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 15:14:11,827 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:14:11,828 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:14:11,830 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 15:14:13,714 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:14:13,715 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:14:13,716 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 15:14:20,257 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:14:20,258 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:14:20,260 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 15:47:00,456 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:47:00,456 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:47:00,462 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 15:52:49,377 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:52:49,377 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:52:49,380 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 15:59:45,707 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:59:45,707 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:59:45,711 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 15:59:51,831 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 15:59:51,831 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 15:59:51,834 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:00:54,869 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:00:54,869 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:00:54,871 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:01:08,683 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:01:08,684 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:01:08,686 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:01:17,380 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:01:17,380 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:01:17,382 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:01:18,789 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:01:18,789 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:01:18,791 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:02:17,332 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:02:17,333 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:02:17,335 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:02:20,628 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:02:20,629 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:02:20,630 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:02:22,110 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:02:22,110 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:02:22,112 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:02:28,630 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:02:28,631 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:02:28,633 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:02:29,975 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:02:29,975 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:02:29,978 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:03:39,866 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:03:39,866 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:03:39,868 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:04:28,007 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:04:28,008 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:04:28,010 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:04:30,954 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:04:30,954 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:04:30,956 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:04:33,610 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:04:33,611 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:04:33,614 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:04:36,072 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:04:36,073 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:04:36,076 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:04:38,837 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:04:38,838 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:04:38,839 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:05:36,196 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:05:36,197 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:05:36,199 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:05:36,200 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:06:19,383 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:06:19,383 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:06:19,386 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:06:19,387 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:07:23,603 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:07:23,603 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:07:23,605 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:08:07,597 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:08:07,598 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:08:07,599 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:08:13,454 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:08:13,455 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:08:13,456 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:08:55,524 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:08:55,525 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:09:27,135 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:09:27,136 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:26:31,213 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,213 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:26:31,215 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:26:31,283 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,284 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:26:31,285 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:26:31,326 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,326 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:26:31,329 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:26:31,358 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,359 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:26:31,360 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:26:31,397 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,398 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:26:31,399 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:26:31,439 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,440 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:26:31,441 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:26:31,442 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:26:31,470 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,471 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:26:31,507 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:26:31,508 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:26:31,509 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:30:36,172 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,173 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,175 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:30:36,252 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,253 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,255 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:30:36,296 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,296 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,300 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:30:36,346 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,348 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,351 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:30:36,390 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,391 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,392 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:30:36,430 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,432 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,434 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:30:36,434 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:30:36,473 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,473 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:30:36,500 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,501 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,503 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:30:36,531 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,531 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,533 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:30:36,563 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,563 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,567 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:30:36,598 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,598 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,600 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:30:36,625 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,626 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,627 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:30:36,661 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,661 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,663 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:30:36,693 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,694 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,695 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:30:36,696 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:30:36,722 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,723 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:30:36,755 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,756 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,757 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:30:36,787 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,788 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,789 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:30:36,819 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,819 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,821 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:30:36,857 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,858 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,859 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:30:36,887 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,887 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,888 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:30:36,913 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,913 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,915 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:30:36,948 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,949 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:36,950 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:30:36,950 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:30:36,981 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:36,982 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:30:37,011 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,011 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,012 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:30:37,047 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,047 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,049 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:30:37,083 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,084 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,085 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:30:37,112 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,113 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,114 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:30:37,139 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,139 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,141 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:30:37,173 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,174 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,176 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:30:37,212 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,214 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,216 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:30:37,217 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:30:37,245 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,246 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:30:37,278 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,278 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,280 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:30:37,305 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,305 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,307 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:30:37,337 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,338 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,339 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:30:37,366 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,366 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,368 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:30:37,394 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,395 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,396 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:30:37,428 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,429 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,430 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:30:37,469 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,470 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,472 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:30:37,472 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:30:37,525 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,526 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:30:37,550 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:30:37,551 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:30:37,552 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:31:49,376 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,377 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,381 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:31:49,461 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,462 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,463 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:31:49,516 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,517 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,519 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:31:49,597 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,598 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,600 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:31:49,694 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,709 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,712 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:31:49,803 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,803 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,805 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:31:49,805 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:31:49,849 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,850 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:31:49,895 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,895 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,897 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:31:49,939 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:49,939 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:49,942 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:31:50,003 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,004 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,005 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:31:50,051 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,051 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,053 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:31:50,096 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,097 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,098 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:31:50,163 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,164 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,169 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:31:50,216 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,218 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,221 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:31:50,222 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:31:50,268 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,270 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:31:50,315 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,316 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,318 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:31:50,362 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,362 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,367 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:31:50,416 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,417 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,420 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:31:50,464 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,465 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,466 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:31:50,511 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,512 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,513 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:31:50,558 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,559 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,561 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:31:50,607 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,607 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,609 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:31:50,609 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:31:50,658 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,659 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:31:50,699 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,700 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,703 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:31:50,752 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,753 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,754 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:31:50,798 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,799 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,803 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:31:50,851 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,851 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,853 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:31:50,897 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,898 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,901 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:31:50,947 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,948 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,950 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:31:50,997 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:50,998 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:50,999 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:31:51,001 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:31:51,052 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,053 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:31:51,095 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,095 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,097 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.
+2018-11-03 16:31:51,145 - INFO - User requests info, path: /rest/product, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,146 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,147 - INFO - Server response info, code: 200, status: OK, description: The list of products data.
+2018-11-03 16:31:51,197 - INFO - User requests info, path: /rest/product/5, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,300 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,309 - INFO - Server response info, code: 200, status: OK, description: Get 5's product data.
+2018-11-03 16:31:51,372 - INFO - User requests info, path: /rest/product/5, method: DELETE, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,372 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,374 - INFO - Server response info, code: 204, status: No Content, description: Delete 5's product data.
+2018-11-03 16:31:51,410 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,411 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,413 - INFO - Server response info, code: 201, status: Created, description: Create 5's product data.
+2018-11-03 16:31:51,458 - INFO - User requests info, path: /rest/product/5, method: PUT, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,458 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,460 - INFO - Server response info, code: 200, status: OK, description: Update 5's product data.
+2018-11-03 16:31:51,501 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,503 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,506 - WARNING - DuplicateKey error in mongoDB, method: create_product
+2018-11-03 16:31:51,506 - INFO - Server response info, code: 409, status: Conflict, description: Request could not be processed because of conflict in the current state of the resource.
+2018-11-03 16:31:51,548 - INFO - User requests info, path: /rest/product/5, method: POST, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,549 - INFO - Server response info, code: 400, status: Bad Request, description: Please check paras or query valid, server cannot or will not process the request.
+2018-11-03 16:31:51,591 - INFO - User requests info, path: /rest/product/6, method: GET, ip: 127.0.0.1, agent: PostmanRuntime/7.3.0
+2018-11-03 16:31:51,592 - INFO - Connect to mongoDB, host: localhost, port: 27017, db: Store, collection: Products
+2018-11-03 16:31:51,593 - INFO - Server response info, code: 404, status: Not Found, description: Product is not found in the collection.

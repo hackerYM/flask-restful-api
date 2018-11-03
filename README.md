@@ -1,9 +1,9 @@
-# Flask api server
-###### tags: `flask` `2018`
+# Flask - RESTful API server
+###### tags: `flask` `restful-api` `2018`
 
-**使用 Python Flask 建立一個 Restful API server**
+**使用 Python Flask 建立一個 RESTful API server**
 
-* Date: 2018-10-21
+* Date: 2018-11-03
 * Author: Yen-Ming
 * Email: hunglow7808@gmail.com
 * Code: https://github.com/HackerYenMing/flask-tutorial
@@ -14,9 +14,7 @@
 
 ![](https://i.imgur.com/snrpqPP.png)
 
-最近公司要建立 api server 去搭建 POC (Proof of concept)，我們不優先考慮效能，只是想快速地開發出可行的 server。
-
-於是，就踏入了 Flask 的世界。
+最近公司要建立 api server 去搭建 POC (Proof of concept)，想快速地開發出可行的 server，於是，就踏入了 Flask 的世界。
 
 在開發的過程中踩了許多坑，也翻閱了很多 Document、Blog，想藉這個機會把學習記錄跟開發過程寫成 Blog，不只是方便我自己以後翻閱，網路上也多了一份資訊，讓想要學習 Python Flask 或者 restful api 的人有所收穫。
 
@@ -561,18 +559,25 @@ import result
 
 
 # connect to mongoDB's collection, set connection timeout = 3s -> use Singleton design-pattern
-def connect_collection(host, port, db_name, collection):
-    result.write_log("info", "Connect to mongoDB, host: {0}, port: {1}, db: {2}, collection: {3}"
-                     .format(host, port, db_name, collection))
-    name, pwd = util.MONGO_USERNAME, util.MONGO_PASSWORD
 
-    client = MongoClient(host, username=name, password=pwd, port=port, serverSelectionTimeoutMS=3000, connect=False)
-    db = client[db_name]
-    return db[collection]
+class Connection(object):
+    conn = None
+
+    def __new__(cls, *args):
+        if cls.conn is None:
+            cls.conn = MongoClient(util.MONGO_HOST, username=util.MONGO_USERNAME, password=util.MONGO_PASSWORD,
+                                   port=util.MONGO_PORT, serverSelectionTimeoutMS=3000, connect=False)
+        return cls.conn
+
+
+def connect_collection(db_name, collection):
+    result.write_log("info", "Connect to mongoDB, host: {0}, port: {1}, db: {2}, collection: {3}"
+                     .format(util.MONGO_HOST, util.MONGO_PORT, db_name, collection))
+    return Connection()[db_name][collection]
 
 
 def store_products():
-    return connect_collection(util.MONGO_HOST, util.MONGO_PORT, util.MONGO_DB_STORE, util.MONGO_COLLECTION_PRODUCTS)
+    return connect_collection(util.MONGO_DB_STORE, util.MONGO_COLLECTION_PRODUCTS)
 
 # --------------------------------------------------------------------------------------
 
@@ -668,7 +673,6 @@ Code:
 
 ```python=
 # mongoDB.py
-
 from pymongo import MongoClient, errors
 
 import util
@@ -680,24 +684,33 @@ ProductSchema = contentProduct.ProductSchema()
 
 # --------------------------------------------------------------------------------------
 
-# connect to mongoDB's collection, set connection timeout = 3s -> use Singleton design-pattern
-def connect_collection(host, port, db_name, collection):
-    result.write_log("info", "Connect to mongoDB, host: {0}, port: {1}, db: {2}, collection: {3}"
-                     .format(host, port, db_name, collection))
-    name, pwd = util.MONGO_USERNAME, util.MONGO_PASSWORD
 
-    client = MongoClient(host, username=name, password=pwd, port=port, serverSelectionTimeoutMS=3000, connect=False)
-    db = client[db_name]
-    return db[collection]
+# connect to mongoDB's collection, set connection timeout = 3s -> use Singleton design-pattern
+
+class Connection(object):
+    conn = None
+
+    def __new__(cls, *args):
+        if cls.conn is None:
+            cls.conn = MongoClient(util.MONGO_HOST, username=util.MONGO_USERNAME, password=util.MONGO_PASSWORD,
+                                   port=util.MONGO_PORT, serverSelectionTimeoutMS=3000, connect=False)
+        return cls.conn
+
+
+def connect_collection(db_name, collection):
+    result.write_log("info", "Connect to mongoDB, host: {0}, port: {1}, db: {2}, collection: {3}"
+                     .format(util.MONGO_HOST, util.MONGO_PORT, db_name, collection))
+    return Connection()[db_name][collection]
 
 
 def store_products():
-    return connect_collection(util.MONGO_HOST, util.MONGO_PORT, util.MONGO_DB_STORE, util.MONGO_COLLECTION_PRODUCTS)
+    return connect_collection(util.MONGO_DB_STORE, util.MONGO_COLLECTION_PRODUCTS)
 
 # --------------------------------------------------------------------------------------
 
 
 # the type of collection's result is list or dict, [] or {} -> no result, tuple(Response class) -> errors happen
+
 def products_list():
 
     try:
@@ -711,11 +724,10 @@ def products_list():
         return result.result(500, "Failed connect to mongoDB, method: products_list")
 
 
-def find_product(id):
+def find_product(product_id):
 
     try:
-        query, fields = {"_id": id}, {}
-        product = store_products().find_one(query)
+        product = store_products().find_one({"_id": product_id})
         product_data = ProductSchema.dump(product).data
 
         return product_data
@@ -736,9 +748,11 @@ def create_product(product_data):
     except errors.DuplicateKeyError:
         result.write_log("warning", "DuplicateKey error in mongoDB, method: create_product")
         return result.result(409, "already exist product id in the collection")
+
     except:
         result.write_log("critical", "Failed connect to mongoDB, method: create_product")
         return result.result(500, "Failed connect to mongoDB, method: create_product")
+
 
 print(create_product(
     {
@@ -757,18 +771,596 @@ print(create_product(
 
 ![](https://i.imgur.com/kVpvPdi.png)
 
-## Restful API
+
+## RESTful API
+
+**Resource Representational State Transfer (REST)** :hash: 
 
 ### Introduce
 
-### Example
+在微服務 (microservices) 時代的崛起，Application Programming Interface (API) 為 server to server 或 clinet to server 之間的溝通管道，可以對整體的服務解耦合、高內聚，用 API 互相請求時，不需要知道對方的實作細節，呼叫 API 介面就可以完成功能。
+
+那 API 為什麼需要表現層狀態轉移 (REST) 來設計呢，首先，REST 不是一種架構、協定，他是一種網路架構風格，由 HTTP 協定擁有的幾種方法 (Get, Post ...)，轉換對 server 的各種操作，並用位置訊息來請求一份資源 (URL)，最後，資源實體表現出來外在形式 (Json, Xml ...)。
+
+REST = 資源（Resources） + 表現層（Representation） + 狀態轉化（State Transfer)
+
+API 採用 REST 風格設計，可以有以下的優點 [出自 WIKI](https://en.wikipedia.org/wiki/Representational_state_transfer) :
+
+0. 客戶端 - 伺服器（Client-Server）
+
+1. 無狀態（Stateless）
+
+2. 可快取（Cachable）
+
+3. 分層系統（Layered System）
+
+4. 統一接口（Uniform Interface）
+
+底下為其他人寫的 Blog 介紹 Restful API，建議進去看看加深理解。
+
+0. [RESTful API 淺談](https://www.cnblogs.com/imyalost/p/7923230.html)
+
+1.  [RESTful API 編寫指南](https://blog.igevin.info/posts/restful-api-get-started-to-write/)
+
+2.  [RESTful API 設計指南](https://www.jianshu.com/p/29453a0da748)
+
+3.  [RESTful API 最佳實踐](https://juejin.im/entry/59e460c951882542f578f2f0)
+
+
+### Basic Concept
+
+#### 回報 http status code (狀態碼)
+
+[HTTP Status Codes 詳細介紹](https://notfalse.net/48/http-status-codes)
+
+狀態碼	| 描述 
+----- | -------
+2xx	| 已接受請求正常處理並返回結果。
+3xx	| 使用者代理需採取進一步行動，以完成請求。
+4xx	| 客戶端，請求有錯誤。
+5xx	| 服務端，內部有錯誤。
+
+#### URL 搭配 Http method 對照表格
+
+/ |POST（新建）| GET（拿取）|PUT（更新）|DELETE（刪除）
+------- | ------- | ------- | ------- | -------
+/products | 新建一個產品	| 列出所有產品 | 更新全部產品 | 刪除所有產品
+/products/2	| x | 拿取2號產品資料 | 更新2號產品 | 刪除2號產品
+Status Code | 200 OK | 201 Created | 200 OK | 204 No Content
+
+
+#### Paging and Filtering ...
+
+若要回傳是一串集合或是大量資料，可以提供分頁 (Paging) 和過濾 (Filtering) 等等機制，增加 API 的效率和可用性。
+
+- Paging
+
+    [GET] /rest/product?start=2&limit=3
+
+- Filtering
+
+    [GET] /rest/product?introduction=samsung phone
+
+#### Python 技巧
+
+這邊使用一個小技巧，用 Python 語法讓方法可傳遞不定數量的參數，```*args``` 和 ```**kwargs```，可以讓程式碼變得更加精簡和直觀。
+
+- [*args, **kwargs 教學](https://eastlakeside.gitbooks.io/interpy-zh/content/args_kwargs/)
+
+簡單來說，*args 對應 Python list，**kwargs 對應 Python dict。
+
+```shell=
+args = [
+    "name1",
+    "name2"
+]
+
+*args = ("name1, "name2")
+
+kwargs = {
+    arg1: "name1",
+    arg2: "name2"
+}
+
+**kwargs = (arg1="name1", arg2="name2")
+```
+
+#### 基礎架構
+
+REST 基本概念都理解的話，接下來，我們用簡單的三層式架構 (Three-tier architecture) 去開發 restful api server
+
+- [3-Layer 基礎架構](https://dotblogs.com.tw/clark/2014/09/09/146494)
+
+- [5 Benefits of a 3-Tier Architecture (底下圖片來源)](https://www.izenda.com/blog/5-benefits-3-tier-architecture/)
+
+![](https://i.imgur.com/lwqjVgk.png)
+
+### Data Access
+
+負責資料存取，這邊我們使用 MongoDB，先對資料庫基本的 CRUD 操作，以及發生例外狀況 (exception) 的處理。
+
+Code:
+
+```python=
+# mongoDB.py
+from pymongo import MongoClient, errors
+
+import util
+import result
+import models.contentProduct as contentProduct
+
+# (Schema) Serialization and Deserialization, method: load(), dump()
+ProductSchema = contentProduct.ProductSchema()
+
+# --------------------------------------------------------------------------------------
+
+
+# connect to mongoDB's collection, set connection timeout = 3s -> use Singleton design-pattern
+
+class Connection(object):
+    conn = None
+
+    def __new__(cls, *args):
+        if cls.conn is None:
+            cls.conn = MongoClient(util.MONGO_HOST, username=util.MONGO_USERNAME, password=util.MONGO_PASSWORD,
+                                   port=util.MONGO_PORT, serverSelectionTimeoutMS=3000, connect=False)
+        return cls.conn
+
+
+def connect_collection(db_name, collection):
+    result.write_log("info", "Connect to mongoDB, host: {0}, port: {1}, db: {2}, collection: {3}"
+                     .format(util.MONGO_HOST, util.MONGO_PORT, db_name, collection))
+    return Connection()[db_name][collection]
+
+
+def store_products():
+    return connect_collection(util.MONGO_DB_STORE, util.MONGO_COLLECTION_PRODUCTS)
+
+# --------------------------------------------------------------------------------------
+
+
+# the type of collection's result is list or dict, [] or {} -> no result, tuple(Response class) -> errors happen
+
+def products_list(**params):
+
+    try:
+        start, limit = params.pop("start"), params.pop("limit")
+
+        products = store_products().find(params).skip(start).limit(limit)
+        products_data = ProductSchema.dump(products, many=True).data
+
+        return products_data
+
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: products_list")
+        return result.result(500, "Failed connect to mongoDB, method: products_list")
+
+
+def find_product(product_id):
+
+    try:
+        product = store_products().find_one({"_id": product_id})
+        product_data = ProductSchema.dump(product).data
+
+        return product_data
+
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: find_product")
+        return result.result(500, "Failed connect to mongoDB, method: find_product")
+
+
+def create_product(**product_data):
+
+    try:
+        product = ProductSchema.load(product_data).data
+        store_products().insert_one(product)
+
+        return product_data
+
+    except errors.DuplicateKeyError:
+        result.write_log("warning", "DuplicateKey error in mongoDB, method: create_product")
+        return result.result(409, "already exist product id in the collection")
+
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: create_product")
+        return result.result(500, "Failed connect to mongoDB, method: create_product")
+
+
+def update_product(**product_data):
+
+    try:
+        product = ProductSchema.load(product_data).data
+        query, update = {'_id': product['_id']}, {'$set': product}
+
+        product = store_products().find_one_and_update(query, update, return_document=True)
+        product_data = ProductSchema.dump(product).data
+
+        return product_data
+
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: update_product")
+        return result.result(500, "Failed connect to mongoDB, method: update_product")
+
+
+def delete_product(product_id):
+
+    try:
+        product = store_products().find_one_and_delete({"_id": product_id})
+        product_data = ProductSchema.dump(product).data
+
+        return product_data
+
+    except:
+        result.write_log("critical", "Failed connect to mongoDB, method: update_product")
+        return result.result(500, "Failed connect to mongoDB, method: update_product")
+```
+
+### Application
+
+把商業邏輯抽象化，並封裝程式碼實作細節，設計輸出結果，表現層只需要呼叫方法即可操做整體系統。
+
+這邊用一個技巧，確定要輸出 API 最終結果，將其包裝成 Flask Response 物件 (type: tuple)，所以，只要被其他物件使用，只要偵測到 return 類別是 tuple，就不繼續執行接下來的過程，直接回傳 Response 即可。
+
+最後，在裡面添加例外狀況，找不到指定資源時，回傳 ```404 Not Found```。
+
+Code:
+
+```python=
+# product.py
+import mongoDB
+import result
+
+
+def products_list(**params):
+
+    products_data = mongoDB.products_list(**params)
+
+    if type(products_data) is tuple:  # happen error on db connection
+        return products_data
+
+    if not products_data:
+        return result.result(404, "Products data are not exist", "Products are not found in the collection.")
+
+    return result.result(200, products_data, "The list of products data.")
+
+
+def get_product(product_id):
+
+    product_data = mongoDB.find_product(product_id)
+
+    if type(product_data) is tuple:  # happen error on db connection
+        return product_data
+
+    if product_data == {}:
+        return result.result(404, "Product data is not exist", "Product is not found in the collection.")
+
+    return result.result(200, product_data, "Get {}'s product data.".format(product_id))
+
+
+def create_product(product_id, **product_data):
+
+    product_data["product_id"] = product_id
+    product_data = mongoDB.create_product(**product_data)
+
+    if type(product_data) is tuple:  # happen error on db connection
+        return product_data
+
+    return result.result(201, product_data, "Create {}'s product data.".format(product_id))
+
+
+def update_product(product_id, **product_data):
+
+    product_data["product_id"] = product_id
+    product_data = mongoDB.update_product(**product_data)
+
+    if type(product_data) is tuple:  # happen error on db connection
+        return product_data
+
+    if product_data == {}:
+        return result.result(404, "Product data is not exist", "Product is not found in the collection.")
+
+    return result.result(200, product_data, "Update {}'s product data.".format(product_id))
+
+
+def delete_product(product_id):
+
+    product_data = mongoDB.delete_product(product_id)
+
+    if type(product_data) is tuple:  # happen error on db connection
+        return product_data
+
+    if product_data == {}:
+        return result.result(404, "Product data is not exist", "Product is not found in the collection.")
+
+    return result.result(204, product_data, "Delete {}'s product data.".format(product_id))
+```
+
+### Presentation
+
+提供使用者操作介面和呈現結果，以 restful api server 來講，就是用 URL 和 Http Method，帶著需要的 params, headers, body 資訊，請求 server 取得資源，server 執行後回傳通用的格式 (Json, Xml ...)。
+
+裡面加入一些過濾機制，避免使用者不按規範操作，引起系統內部問題，400 - 409 都是常見的使用者錯誤，這邊使用了以下 4xx 錯誤狀態碼。
+
+```400 Bad Request``` 
+```404 Not Found```
+```405 Method Not Allowed```
+```406 Not Acceptable```
+```409 Conflict```
+
+```python=
+# app.py
+from flask import Flask, request
+
+import result
+import product
+
+app = Flask(__name__)
+
+
+@app.before_request
+def before_request():
+
+    result.write_log('info', "User requests info, path: {0}, method: {1}, ip: {2}, agent: {3}"
+                     .format(str(request.path), str(request.method), str(request.remote_addr), str(request.user_agent)))
+
+    if 'Content-Type' in request.headers and request.headers['Content-Type'] != "application/json":
+        return result.result(406, "requested URL was not found on the server")
+
+
+@app.after_request
+def after_request(response):
+    resp = response.get_json()
+
+    if resp is not None:
+        code, status, description = resp["code"], resp["status"], resp["description"]
+        response_info = "Server response info, code: {0}, status: {1}, description: {2}"
+
+        if code == 500:
+            result.write_log('warning', response_info.format(code, status, description))
+        else:
+            result.write_log('info', response_info.format(code, status, description))
+
+    return response
+
+
+@app.errorhandler(400)
+def method_400(e):
+    return result.result(400, "the browser (or proxy) sent a request that this server could not understand")
+
+
+@app.errorhandler(404)
+def method_404(e):
+    return result.result(404, "requested URL was not found on the server")
+
+
+@app.errorhandler(405)
+def method_405(e):
+    return result.result(405, "http method is not allowed for the requested URL")
+
+
+@app.errorhandler(500)
+def method_500(e):
+    return result.result(500, "something has gone wrong on the restful api server")
+
+# --------------------------------------------------------------------------------------
+
+
+@app.route('/', methods=["GET"])
+def hello_world():
+    return 'Restful api server v1.0.1'
+
+
+@app.route('/rest/ping', methods=["GET"])
+def ping():
+    return result.result(200, "ping successful", "Welcome to restful api server.")
+
+# --------------------------------------------------------------------------------------
+
+
+def check_integer(input_int, name):
+
+    try:
+        if input_int is None or input_int == "":  # if mongoDB start(skip) or limit is 0, it will return all data
+            return 0
+
+        return int(input_int) if int(input_int) >= 0 else result.result(400, "{} must be positive integer".format(name))
+
+    except ValueError:
+        return result.result(400, "{} is not integer".format(name))
+
+
+def update_page_params(params, start, limit):
+
+    int_start, int_limit = check_integer(start, "start"), check_integer(limit, "limit")
+
+    if type(int_start) is tuple:
+        return int_start
+
+    if type(int_limit) is tuple:
+        return int_limit
+
+    params.update({"start": int_start, "limit": int_limit})
+    return params
+
+# --------------------------------------------------------------------------------------
+
+
+@app.route('/rest/product', methods=['GET'])
+def product_list():
+
+    params, values = {}, request.values
+    introduction, start, limit = values.get('introduction'), values.get('start'), values.get('limit')
+
+    if introduction is not None and introduction != "":
+        params["introduction"] = introduction
+
+    page_params = update_page_params(params, start, limit)  # provide paging feature
+
+    if type(page_params) is tuple:
+        return page_params
+
+    return product.products_list(**page_params)
+
+
+@app.route('/rest/product/<product_id>', methods=['GET', 'POST', 'PUT', 'DELETE'])
+def control_product(product_id):
+
+    if request.method == "GET":
+        return product.get_product(product_id)
+
+    if request.method == "DELETE":
+        return product.delete_product(product_id)
+
+    product_data = request.get_json()
+
+    if "name" not in product_data or product_data["name"] is None:
+        return result.result(400, "name is empty or null")
+
+    if "introduction" not in product_data or product_data["introduction"] is None:
+        return result.result(400, "introduction is empty or null")
+
+    if "price" not in product_data or product_data["price"] is None:
+        return result.result(400, "price is empty or null")
+
+    if "quantity" not in product_data or product_data["quantity"] is None:
+        return result.result(400, "quantity is empty or null")
+
+    if request.method == "POST":
+        return product.create_product(product_id, **product_data)
+
+    return product.update_product(product_id, **product_data)
+
+# --------------------------------------------------------------------------------------
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+
+
+## Testing
+
+開發系統到這邊，終於寫出一個有基本 CRUD 的 api server :satisfied:，但是，我們要確認每一個 api 或是內部方法、類別，是否都有回傳預期的結果，所以要仔細測試每一項功能。
+
+![](https://i.imgur.com/Wd0D1NT.png)
+
+### API test
+
+首先，我們先針對開出的 api 功能，都能正確回報結果，我們可以之前介紹的工具 Postman，來編寫自動化測試 script。
+
+![](https://i.imgur.com/9F9zwDE.png)
+
+點開 Tests 之後，在旁邊有提供很多選項，點選你想要測試的項目，在修改裡面的參數。
+
+```javascript=
+pm.test("Response time is less than 500ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+});
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Status code name has OK", function () {
+    pm.response.to.have.status("OK");
+});
+
+
+pm.test("Body's status is OK", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.status).to.eql("OK");
+});
+
+pm.test("Body's description correct", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.description).to.eql("The list of products data.");
+});
+
+
+pm.test("Message's product 1 correct", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.message[0]).to.eql(
+        {
+            "introduction": "htc phone",
+            "name": "htc u11",
+            "price": 200,
+            "product_id": "1",
+            "quantity": 10
+        });
+});
+```
+
+發出 request 的時候，Postman 除了會顯示回傳結果以外，也會根據你撰寫的測試，顯示 Tests 通過、失敗幾項以及失敗原因。
+
+![](https://i.imgur.com/DqCtbhg.png)
+
+如果系統有很多 api，要一個個點進去按發送測試，也太辛苦了一點 :anguished:，所以，Postman 提供一個很貼心的功能，把要測試的 API 都放在一個 Collection 裡面，並都每一個寫好 Tests。
+
+![](https://i.imgur.com/5JBP4Cq.png)
+
+在開啟 Collection Runner 的功能，選擇要運行的資料夾、環境變數、執行次數、每個 request 間隔毫秒數。
+
+![](https://i.imgur.com/PyPQgGB.png)
+
+點選 Run 後，Postman 會自動測試 Collection 裡面的每一個項目，顯示 Tests 結果，也可以產生 Json 報表。
+
+![](https://i.imgur.com/3zAZf58.png)
+
+- [利用 POSTMAN 中的 collection 來快速測試](https://blog.yowko.com/postman-collection-runner/)
+
+### health check
+
+當系統正式上線的時候，我們要知道 server 是否有正常運作，所以需要定期給 server 健康檢查 (health check) 一下 :heart:。
+
+網路上有很多種 api monitor open source 工具，你可以挑一個你喜歡的工具，這邊我們使用 Postman 內建的功能 Monitoring。
+
+- [10+ API Monitoring Tools](https://nordicapis.com/10-api-monitoring-tools/)
+
+- [Intro to Postman Monitoring](https://www.getpostman.com/docs/v6/postman/monitors/intro_monitors)
+
+點選 Collection 旁邊的小箭頭，裡面有 Monitors 的功能。
+
+![](https://i.imgur.com/W76JkKu.png)
+
+設定參數，多久頻率需要監測一次，確定之後點選 Create。
+
+![](https://i.imgur.com/RPIqF2D.png)
+
+:::warning
+官方文件寫說，免費帳號一個月只有 1000 次的請求次數，所以不要條太高的頻率。
+Each Postman user gets 1,000 monitoring calls for free per month.
+:::
+
+![](https://i.imgur.com/H63VyOW.png)
+
+Postman 就會根據你設定頻率，定期幫你的 server 健康檢查。:smirk:
+
+![](https://i.imgur.com/gFRyR1Y.png)
+
+當 request 發生錯誤時候，Postman 會寄信通知你:exclamation: 
+
+![](https://i.imgur.com/XTcMGn9.png)
+
+![](https://i.imgur.com/ff6N1Vs.png)
+
+最後，產生每日報表 (Monitors Daily Summary)，分析 server 狀況。 :date: 
+
+![](https://i.imgur.com/3g4d9hu.png)
+
+### Stress test
+
+
+## Deployment
+
+### Gunicorn
+
+### Docker
 
 
 ## Advanced
 
-### Multiprocessing
+### Auth
 
-### Testing
 
 ## Continue ...
 
