@@ -22,7 +22,7 @@ Blog 之中若是有任何錯誤、有更好的方法，或是想跟我討論相
 
 ### Requests Skills
 
-Development - 需要 Python3 程式能力、Web service 基本概念、MongoDB 非關聯式資料庫，沒接觸過或不太熟的朋友們，可以用以下的資源來學習。
+Development - 需要 Python 程式能力、Web service 基本概念、MongoDB 非關聯式資料庫，沒接觸過或不太熟的朋友們，可以用以下的資源來學習。
 
 - Python
 
@@ -108,8 +108,6 @@ Deployment - 需要了解 git 版本控制、Docker 容器化技術。
 
 - IDE - PyCharm Professional Edition
 
-    ![](https://i.imgur.com/UpgAWUL.png)
-
     後來就決定用 IDE，挑了幾間的使用過後，覺得 PyCharm 最順手，有許多強大的功能，提供程式碼修復建議、自動修改關聯的重構項目 (Refactor)、各式各樣的插件 (Plugins)、支援 git, docker 等等，還有很多功能沒有提及，可以到官方網站認識。
     
     另外，他有兩種版本，Community Edition, Professional Edition，前者免費、後者只能試用一個月之後要收費，但是，他有提供學生專案，用校級信箱註冊可以使用一整年，學校帶來的些許好處之一吧。:smile: 
@@ -124,7 +122,6 @@ Deployment - 需要了解 git 版本控制、Docker 容器化技術。
 
 - API testing - Postman
     
-    ![](https://i.imgur.com/sHrO8h6.png)
     
     開發 api server 常常需要測試 api 回傳結果是否正確，瀏覽器是一種方法，但是它只能使用 method [GET]，其他 method 就沒辦法了。
     
@@ -826,7 +823,7 @@ API 採用 REST 風格設計，可以有以下的優點 [出自 WIKI](https://en
 ------- | ------- | ------- | ------- | -------
 /products | 新建一個產品	| 列出所有產品 | 更新全部產品 | 刪除所有產品
 /products/2	| x | 拿取2號產品資料 | 更新2號產品 | 刪除2號產品
-Status Code | 200 OK | 201 Created | 200 OK | 204 No Content
+Status Code | 201 Created | 200 OK | 200 OK | 204 No Content
 
 
 #### Paging and Filtering ...
@@ -1242,7 +1239,6 @@ if __name__ == '__main__':
 
 開發系統到這邊，終於寫出一個有基本 CRUD 的 api server :satisfied:，但是，我們要確認每一個 api 或是內部方法、類別，是否都有回傳預期的結果，所以要仔細測試每一項功能。
 
-![](https://i.imgur.com/Wd0D1NT.png)
 
 ### API test
 
@@ -1327,7 +1323,7 @@ pm.test("Message's product 1 correct", function () {
 ![](https://i.imgur.com/RPIqF2D.png)
 
 :::warning
-官方文件寫說，免費帳號一個月只有 1000 次的請求次數，所以不要條太高的頻率。
+官方文件說，免費帳號一個月只有 1000 次的請求次數，所以不要條太高的頻率。
 Each Postman user gets 1,000 monitoring calls for free per month.
 :::
 
@@ -1337,11 +1333,7 @@ Postman 就會根據你設定頻率，定期幫你的 server 健康檢查。:smi
 
 ![](https://i.imgur.com/gFRyR1Y.png)
 
-當 request 發生錯誤時候，Postman 會寄信通知你:exclamation: 
-
-![](https://i.imgur.com/XTcMGn9.png)
-
-![](https://i.imgur.com/ff6N1Vs.png)
+當 request 發生錯誤時候，Postman 會寄信通知你。
 
 最後，產生每日報表 (Monitors Daily Summary)，分析 server 狀況。 :date: 
 
