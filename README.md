@@ -3,11 +3,6 @@
 
 **使用 Python Flask 建立一個 RESTful API server**
 
-* Date: 2018-11-03
-* Author: Yen-Ming
-* Email: hunglow7808@gmail.com
-* Code: https://github.com/HackerYenMing/flask-tutorial
-
 ## Preface
 
 ### Introduction 
